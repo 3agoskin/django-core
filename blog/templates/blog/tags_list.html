@@ -1,0 +1,30 @@
+{% extends 'blog/base_blog.html' %}
+
+{% block title %}
+    Tags list - {{ block.super }}
+{% endblock %}
+
+{% block style_css %}
+
+    a{
+        text-decoration: none;
+    }
+    li.list-group-item:hover{
+        background-color: #FC605C;
+        color: white;
+        <!-- opacity: 0.8; -->
+    }
+{% endblock %}
+
+{% block content %}
+    <h4 class='mb-3 text-center'>Рубрики</h4>
+    <div class="card" style="width: 40rem;">
+    <!-- <div class="card-header p-3 text-white  bg-primary"> -->
+       
+    <!-- </div> -->
+    <ul class="list-group list-group-flush">
+    {% for tag in tags %}
+    <a class="card-tag" href="{{ tag.get_absolute_url }}" ><li class="list-group-item p-3">{{ tag.title }}</li></a>
+    {% endfor %}
+    </ul>
+{% endblock %}
